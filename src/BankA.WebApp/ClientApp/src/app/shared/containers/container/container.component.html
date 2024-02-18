@@ -7,7 +7,7 @@
             <mat-nav-list class="menu-list">
                 <div mat-subheader class="mb-1"><small>Accounts</small></div>
                 <div class="text-center" *ngIf="noRecords">
-                    <strong>No Accounts </strong> 
+                    <strong>No Accounts </strong>
                     <br>
                     <a [routerLink]="['/','settings','accounts']">Click here to create an Account</a>
                 </div>
@@ -26,11 +26,10 @@
                     <a mat-list-item [routerLink]="['/','settings']">
                         <mat-icon matListItemIcon color="primary" class="me-3">settings_applications</mat-icon>
                         <div matListItemTitle class="mat-body-strong">Settings</div>
-                        <div matListItemLine>&nbsp;</div>
                     </a>
                 </mat-nav-list>
                 <mat-divider></mat-divider>
-                <span class="mx-3">v{{version}}</span>
+                <app-about></app-about>
             </div>
         </div>
     </mat-sidenav>

@@ -2,7 +2,6 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { AccountBalance } from '../../../transactions/models/accounts.model';
 import { TransactionsService } from '../../../transactions/services/transactions.service';
 import { BaseComponent } from '../../components/base/base.component';
-import { environment } from '../../../../environments/environment';
 
 @Component({
 	selector: 'app-container',
@@ -14,7 +13,7 @@ export class ContainerComponent extends BaseComponent implements OnInit {
 	accounts: AccountBalance[] = [];
 	accountSelected: AccountBalance | undefined;
 	selectedTabIndex: any;
-	version = environment.version;
+	
 
 	constructor(private injector: Injector, private transactionsService: TransactionsService) {
 		super(injector);

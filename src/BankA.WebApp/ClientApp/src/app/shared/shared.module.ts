@@ -13,6 +13,7 @@ import { SettingsContainerComponent } from './containers/settings-container/sett
 import { MatModule } from './mat.modules';
 import { DialogService } from './services/dialog.service';
 import { ToastService } from './services/toast.service';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
 	imports: [CommonModule,
@@ -28,7 +29,8 @@ import { ToastService } from './services/toast.service';
 		EmptyStateComponent,
 		SettingsContainerComponent,
 		ContainerComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		AboutComponent
 	],
 	exports: [
 		FormsModule,
