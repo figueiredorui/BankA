@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>
+  <span> Import File</span>
+</h2>
+
+<mat-dialog-content class="pt-2" [ngClass]="{'div-disabled': loading}">
+  <div class="col-lg-12">
+    <app-loader [show]="loading"></app-loader>
+    <app-error-message [errorMessage]="errorMessage"></app-error-message>
+  </div>
+  <div class="hstack gap-3">
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>Account</mat-label>
+      <input matInput placeholder="Account" [value]="account?.Description" readonly />
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="fill">
+      <mat-label>File Format</mat-label>
+      <input matInput placeholder="File Format" [value]="account?.FileFormat" readonly />
+    </mat-form-field>
+
+    <div class="pb-3">
+      <button type="button" mat-flat-button color="primary" (click)="fileUpload.click()">Choose File</button>
+      <input hidden (change)="onFileSelected($event)" #fileUpload type="file" id="fileUpload" accept=".csv">
+    </div>
+
+    <mat-form-field *ngIf="isFileSelected">
+      <mat-label>Delimier</mat-label>
+      <mat-select [(ngModel)]="fileFormatConfig.Delimiter" name="Delimier">
+        <mat-option value=",">,</mat-option>
+        <mat-option value=";">;</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="pb-3" *ngIf="isFileSelected">
+      <mat-checkbox name="hasHeaders" [(ngModel)]="fileFormatConfig.HasHeaders">Has Headers</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <app-loader [show]="loading"></app-loader>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col" *ngFor="let col of columnMapping; let i = index">
+            <mat-select name="c{{i}}" [(ngModel)]="col.ColumnFieldMap">
+              <mat-option *ngFor="let field of fieldNameLookup" [value]="field">
+                {{field}}
+              </mat-option>
+            </mat-select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of csvDataJson | slice:0:20; let f = first"
+          [class.fw-bold]="fileFormatConfig.HasHeaders && f">
+          <td class="col " *ngFor="let col of columnMapping">{{row[col.ColumnId]}}</td>
+        </tr>
+        <tr>
+          <td class="col" *ngFor="let col of columnMapping">...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button mat-button color="primary" (click)="import()" cdkFocusInitial>Import</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

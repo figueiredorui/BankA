@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>
+	<span> Transactions - {{ title }}</span>
+</h2>
+<mat-dialog-content class="pt-2">
+	<div class="col-lg-12">
+		<app-loader [show]="loading"></app-loader>
+		<app-error-message [errorMessage]="errorMessage"></app-error-message>
+	</div>
+
+	<div class="col-xs-12">
+		<app-transaction-list [accountId]="accountId" [showEdit]="true" [showRule]="false" [filter]="filter"></app-transaction-list>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-end">
+	<button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

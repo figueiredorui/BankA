@@ -1,0 +1,65 @@
+.table-responsive {
+  position: relative;
+}
+
+.column-date {
+  width: 120px !important;
+}
+
+.column-description {
+  width: 50% !important;
+}
+
+.column-amount {
+  width: 120px !important;
+  text-align: end;
+}
+
+.column-category {
+  width: 150px !important;
+  padding-left: 24px;
+}
+
+.column-merchante {
+  width: 150px !important;
+}
+
+.column-rule-header {
+  width: 128px !important;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: end;
+}
+
+.column-rule {
+  width: 120px !important;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: end;
+}
+
+.column-edit-header {
+  width: 78px !important;
+}
+
+.column-edit {
+  width: 70px !important;
+  text-align: center;
+}
+
+
+
+table tbody {
+  display: block;
+  height: calc(100vh - 355px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable
+}
+
+table thead,
+table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}

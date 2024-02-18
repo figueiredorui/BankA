@@ -1,0 +1,248 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$banka-palette: (
+  50: #94cfff,
+  100: #68bbff,
+  200: #48acff,
+  300: #2e9eff,
+  400: #2e8ff9,
+  500: #2c7ce5,
+  600: #3949ab,
+  700: #303f9f,
+  800: #283593,
+  900: #1a237e,
+  A100: #8c9eff,
+  A200: #536dfe,
+  A400: #3d5afe,
+  A700: #304ffe,
+  contrast: (50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$my-app-primary: mat.define-palette($banka-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+$my-app-theme: mat.define-light-theme((color: (primary: $my-app-primary,
+        accent: $my-app-accent,
+        warn: $my-app-warn,
+      ),
+    ));
+
+@include mat.all-component-themes($my-app-theme);
+
+// Plus imports for other components in your app.
+@include mat.all-component-densities(-1);
+@include mat.form-field-density(-4);
+
+
+/* You can add global styles to this file, and also import other style files */
+//  @import "bootstrap/scss/bootstrap";
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+//@import "../node_modules/bootstrap/scss/type";
+//@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers/stacks";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+ @import "../node_modules/bootstrap/scss/utilities/api";
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #12263F
+}
+
+.container-background-color {
+  background-color: #F7F9FB;
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* forms */
+
+.control-full-width {
+  width: 100%;
+}
+
+.div-disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.mat-button-sm {
+  height: 32px !important
+}
+
+.mat-icon-sm {
+  transform: scale(0.8);
+}
+
+/*search*/
+
+.search-input {
+  width: 66%;
+  border-radius: 0px;
+  border: 0px solid #ada9a9;
+  padding: 8px 36px;
+  background-image: url(./assets/magnifying-glass-solid.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: 0;
+  background-position: 0px;
+  background-size: 16px;
+}
+
+/*dialog*/
+
+.fullscreen-dialog {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.mat-mdc-dialog-content {
+  font-size: 14px !important;
+}
+
+
+/*headers*/
+
+.header {
+  // margin-bottom: 1.5rem;
+}
+
+.header-body {
+  padding-bottom: 0rem;
+  padding-top: 1.5rem;
+}
+
+.header-pretitle {
+  color: var(--bs-gray-600);
+  text-transform: uppercase;
+  font-size: .625rem;
+  margin-bottom: 0px !important;
+  letter-spacing: 1.25px
+}
+
+.header-title {
+  letter-spacing: 1.25px !important;
+}
+
+/*cards*/
+
+
+.card {
+  border-color: #edf2f9;
+  box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+  margin-bottom: 1.5rem;
+  background-color: white;
+}
+
+.card-table {
+  margin-bottom: 0;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  background-color: transparent;
+  border-bottom: 1px solid #edf2f9;
+  margin-bottom: 0;
+  padding: .75rem 1rem;
+  font-weight: 500;
+  letter-spacing: 1.25px
+}
+
+.card-header>:first-child {
+  flex: 1;
+}
+
+/*table*/
+
+.table>:not(caption)>*>* {
+  background-color: var(--bs-table-bg);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+  padding: 0.4rem;
+}
+
+.table thead th {
+  background-color: #f9fbfd;
+  color: #95aac9;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  padding-left: 1rem;
+}
+
+.table td,
+.table th {
+  border-bottom: 0;
+  border-top: 1px solid #edf2f9;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  padding-left: 1rem;
+}

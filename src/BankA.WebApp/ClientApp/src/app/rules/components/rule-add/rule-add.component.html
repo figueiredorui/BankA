@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>
+	<span> Add Rule</span>
+</h2>
+
+<mat-dialog-content class="pt-2" [ngClass]="{'div-disabled': loading}">
+	<div class="col-lg-12">
+		<app-loader [show]="loading"></app-loader>
+		<app-error-message [errorMessage]="errorMessage"></app-error-message>
+	</div>
+	<form [formGroup]="form">
+		<mat-form-field class="control-full-width">
+			<mat-label>Keywords</mat-label>
+			<input matInput placeholder="Keywords" formControlName="Keywords" name="Keywords" id="Keywords"
+				autocomplete="off" cdkFocusInitial>
+		</mat-form-field>
+
+		<mat-form-field class="control-full-width">
+			<mat-label>Category</mat-label>
+			<input type="text" name="Category" id="Category" placeholder="Category" matInput
+				formControlName="CategoryId" [matAutocomplete]="Category" autocomplete="off">
+			<mat-autocomplete #Category="matAutocomplete" [displayWith]="displayFn">
+				@for (option of categoryLookupFiltered | async; track trackByIdFn) {
+				<mat-option [value]="option">{{option.CategoryName}}</mat-option>
+				}
+			</mat-autocomplete>
+		</mat-form-field>
+
+		<mat-form-field class="control-full-width">
+			<mat-label>Merchant</mat-label>
+			<input type="text" name="Merchant" id="Merchant" placeholder="Merchant" matInput
+				formControlName="MerchantName" [matAutocomplete]="Merchant" autocomplete="off">
+			<mat-autocomplete #Merchant="matAutocomplete">
+				@for (option of merchantLookupFiltered | async; track option) {
+				<mat-option [value]="option">{{option}}</mat-option>
+				}
+			</mat-autocomplete>
+		</mat-form-field>
+
+	</form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-end">
+	<div>
+		<button mat-button color="primary" (click)="save()">Save</button>
+		<button mat-button (click)="cancel()">Cancel</button>
+	</div>
+</mat-dialog-actions>

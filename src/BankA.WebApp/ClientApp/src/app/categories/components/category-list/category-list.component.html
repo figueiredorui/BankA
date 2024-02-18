@@ -1,0 +1,86 @@
+<div class="header">
+	<div class="header-body">
+		<div class="row align-items-center">
+			<div class="col">
+				<h6 class="header-pretitle">
+					Settings
+				</h6>
+				<h2 class="header-title text-truncate">
+					Categories
+				</h2>
+			</div>
+			<div class="col-auto">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row align-items-center mb-3">
+	<div class="col">
+		<nav mat-tab-nav-bar [tabPanel]="tabPanel" mat-align-tabs="start" mat-stretch-tabs="false">
+			<a mat-tab-link [routerLink]="['../expense']" routerLinkActive #rla1="routerLinkActive"
+				[active]="rla1.isActive"> Expenses </a>
+			<a mat-tab-link [routerLink]="['../income']" routerLinkActive #rla2="routerLinkActive"
+				[active]="rla2.isActive"> Income </a>
+			<a mat-tab-link [routerLink]="['../transfer']" routerLinkActive #rla3="routerLinkActive"
+				[active]="rla3.isActive"> Transfer </a>
+		</nav>
+		<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+	</div>
+	<div class="col-auto">
+		<button (click)="addCategory()" mat-flat-button color="primary">
+			Add Category
+		</button>
+	</div>
+</div>
+
+<div class="card mb-1">
+	<div class="card-header">
+		<div class="col">
+			<input type="search" class="search-input" placeholder="Search" #inputSearch>
+		</div>
+	</div>
+	<app-loader [show]="loading"></app-loader>
+	<app-error-message [errorMessage]="errorMessage"></app-error-message>
+	<div class="table-responsive">
+		<table class="table table-sm align-middle ">
+			<thead>
+				<tr class="">
+					<th class="col">
+						Parent Category
+					</th>
+					<th class="col">
+						Category
+					</th>
+					<th class="col"></th>
+				</tr>
+			</thead>
+			<app-empty-state *ngIf="noRecords">
+			</app-empty-state>
+			<tbody class="">
+				<ng-container *ngFor="let item of categories">
+					<tr class="">
+						<td class="col">{{ item.ParentCategoryName }}</td>
+						<td class="col">
+							{{ item.CategoryName }}
+						</td>
+						<td class="col d-flex justify-content-end">
+							<button mat-icon-button (click)="editCategory(item.Id)">
+								<i class="fa fa-edit fa-2xs"></i>
+							</button>
+						</td>
+					</tr>
+				</ng-container>
+			</tbody>
+
+		</table>
+	</div>
+	<div class="card-footer bg-white d-flex justify-content-end">
+
+		<mat-paginator (page)="handlePageEvent($event)" [pageIndex]="pagedList.PageIndex"
+			[length]="pagedList.RecordCount" [pageSize]="pagedList.PageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+			showFirstLastButtons="true" aria-label="Select page">
+		</mat-paginator>
+
+	</div>
+</div>

@@ -1,0 +1,19 @@
+
+<div class="hstack gap-3 mb-2">
+    <button (click)="openImportFile()" mat-stroked-button color="primary" class="ms-auto">Import File</button>
+    <button (click)="openCategorizeDialog()" mat-stroked-button color="primary">Categorize</button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="addTransaction()">
+          <span>Add Transaction</span>
+        </button>
+        <button mat-menu-item>
+          <span>Refresh</span>
+        </button>
+      </mat-menu>
+</div>
+
+
+<app-transaction-list [accountId]="accountId" [showRunningBalance]="true"></app-transaction-list>

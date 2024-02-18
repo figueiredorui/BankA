@@ -1,0 +1,40 @@
+<div class="col-lg-12">
+	<app-error-message [errorMessage]="errorMessage"></app-error-message>
+</div>
+
+<div class="hstack gap-3 mb-2">
+	<button mat-button [matMenuTriggerFor]="menu" class="ms-auto button-menu" color="primary">
+		<span>{{periodOptions.get(period)}}</span>
+		<mat-icon iconPositionEnd inline>arrow_drop_down</mat-icon>
+	</button>
+	<mat-menu #menu="matMenu">
+		<button mat-menu-item *ngFor="let p of periodOptions | keyvalue" (click)="changePeriod(p.key)">
+			<span class="item-menu">{{p.value}}</span>
+		</button>
+	</mat-menu>
+</div>
+
+<div class="row">
+	<div class="col-lg-12 mb-4">
+		<div class="card">
+			<div class="card-body">
+				<app-cashflow-chart [accountId]="accountId" [period]="period"></app-cashflow-chart>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<mat-tab-group animationDuration="0ms">
+		<mat-tab label="Categories">
+			<div class="mt-3">
+				<app-category-summary [accountId]="accountId" [period]="period"></app-category-summary>
+			</div>
+		</mat-tab>
+		<mat-tab label="Merchants">
+			<div class="mt-3">
+				<app-merchant-summary [accountId]="accountId" [period]="period"></app-merchant-summary>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
+</div>

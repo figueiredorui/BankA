@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankA.Domain\BankA.Domain.csproj" />
+    <ProjectReference Include="..\..\..\DotNetLib8\src\DotNetLib.NetCore\DotNetLib.NetCore.csproj" />
+    <ProjectReference Include="..\..\..\DotNetLib8\src\DotNetLib.MediatR\DotNetLib.MediatR.csproj" />
+  </ItemGroup>
+
+</Project>

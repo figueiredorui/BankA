@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>
+	<span > Add Account</span>
+</h2>
+
+<mat-dialog-content class="pt-2" [ngClass]="{'div-disabled': loading}">
+	<div class="col-lg-12">
+		<app-loader [show]="loading"></app-loader>
+		<app-error-message [errorMessage]="errorMessage"></app-error-message>
+	</div>
+	<form [formGroup]="form">
+		<mat-form-field class="control-full-width">
+			<mat-label>Description</mat-label>
+			<input matInput placeholder="Description" formControlName="Description" name="Description" id="Description"
+				autocomplete="off" cdkFocusInitial>
+		</mat-form-field>
+
+		<mat-form-field class="control-full-width">
+			<mat-label>File Format</mat-label>
+			<mat-select placeholder="FileFormat" formControlName="FileFormat" name="FileFormat" id="FileFormat">
+				<mat-option *ngFor="let c of fileFormats" [value]="c">{{ c }}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-end">
+	<div>
+		<button mat-button color="primary" (click)="saveAccount()">Save</button>
+		<button mat-button (click)="cancel()">Cancel</button>
+	</div>
+</mat-dialog-actions>
+
+

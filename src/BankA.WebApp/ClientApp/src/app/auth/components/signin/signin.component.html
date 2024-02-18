@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center min-vh-100 container-background-color border-top border-top-2 border-primary">
+    <div class="container">
+        <div class="align-items-center row">
+            <div class="offset-xl-2 offset-md-1 order-md-2 mb-5 mb-md-0 col-md-6 col-12">
+                <div class="text-center"><img class="img-fluid" src="/assets/undraw_finance.svg" alt="..."></div>
+            </div>
+            <div class="order-md-1 my-5 col-xl-4 col-md-5 col-12">
+                <h1 class="display-5 fw-bold text-center mb-3">Sign in</h1>
+                <p class="text-muted fw-bold text-center mb-5">Welcome to BankA</p>
+                <form class="form" [formGroup]="loginForm">
+                    <div>
+                        <app-loader [show]="loading"></app-loader>
+                        <app-error-message [errorMessage]="errorMessage"></app-error-message>
+                    </div>
+                    <mat-form-field class="control-full-width">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Username" formControlName="Username" name="Username"
+                            id="Username" />
+                    </mat-form-field>
+
+                    <mat-form-field class="control-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Password" formControlName="Password"
+                            name="Password" id="Password" autocomplete="on" />
+                    </mat-form-field>
+
+                    <div>
+                        <button class="control-full-width" mat-flat-button color="primary" (click)="signIn()">Sign
+                            in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

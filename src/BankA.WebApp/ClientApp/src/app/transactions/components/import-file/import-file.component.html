@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>
+  <span> Import File</span>
+</h2>
+
+<mat-dialog-content class="pt-2" [ngClass]="{'div-disabled': loading}">
+  <div class="col-lg-12">
+    <app-loader [show]="loading"></app-loader>
+    <app-error-message [errorMessage]="errorMessage"></app-error-message>
+  </div>
+  <mat-form-field floatLabel="always" appearance="fill">
+    <mat-label>Account</mat-label>
+    <input matInput placeholder="Account" [value]="account.Description" readonly />
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="fill">
+    <mat-label>File Format</mat-label>
+    <input matInput placeholder="File Format" [value]="account.FileFormat" readonly />
+  </mat-form-field>
+
+  <mat-form-field class="control-full-width mt-3">
+    <mat-label>File</mat-label>
+    <input type="text" readonly matInput [formControl]="fileControl" />
+    <input type="file" hidden #fileUpload id="fileUpload" (change)="onFileSelected($event)" />
+    <button mat-button matSuffix (click)="fileUpload.click()">Select File</button>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button mat-button color="primary" (click)="import()" cdkFocusInitial>Import</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

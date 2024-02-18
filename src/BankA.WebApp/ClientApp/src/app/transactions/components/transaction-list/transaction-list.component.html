@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<div class="col">
+			<input type="search" class="search-input" placeholder="Search" #inputSearch>
+		</div>
+	</div>
+	<div class="table-responsive">
+		<app-loader [show]="loading"></app-loader>
+		<app-error-message [errorMessage]="errorMessage"></app-error-message>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="column-date">Date</th>
+					<th class="column-description">Description</th>
+					<th class="column-amount">Amount</th>
+					<th class="column-amount" *ngIf="showRunningBalance">Balance</th>
+					<th class="column-category">Category</th>
+					<th class="column-merchante">Merchant</th>
+					<th class="column-rule-header" *ngIf="showRule"></th>
+					<th class="column-edit-header" *ngIf="showEdit"></th>
+				</tr>
+			</thead>
+			<app-empty-state *ngIf="noRecords">
+			</app-empty-state>
+			@if (loading) {
+			<tbody *ngIf="loading">
+			</tbody>
+			} @else {
+			<tbody *ngIf="!loading">
+				<tr *ngFor="let transaction of transactionResult.Data">
+					<td class="column-date">{{ transaction.TransactionDate | date }}</td>
+					<td class="column-description">{{ transaction.Description }}</td>
+					<td class="column-amount">
+						<strong [className]="transaction.Balance > 0 ? 'text-success' : 'text-danger'"> {{
+							transaction.Balance | currency }}</strong>
+					</td>
+					<td class="column-amount" *ngIf="showRunningBalance">
+						{{transaction.RunningBalance | currency }}
+					</td>
+					<td class="column-category">
+						<span>{{transaction.CategoryName }}</span>
+					</td>
+					<td class="column-merchante">
+						<span>{{transaction.MerchantName }}</span>
+					</td>
+					<td class="column-rule" *ngIf="showRule">
+						<button color="primary" mat-stroked-button (click)="addCategoryRule(transaction)">Add
+							Rule</button>
+					</td>
+					<td class="column-edit" *ngIf="showEdit">
+						<button mat-icon-button (click)="editTransaction(transaction)">
+							<i class="fa fa-edit fa-2xs"></i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+			}
+		</table>
+	</div>
+	<div class="card-footer bg-white d-flex justify-content-end">
+		<mat-paginator (page)="handlePageEvent($event)" [pageIndex]="transactionResult.PageIndex"
+			formFieldAppearance="fill" [length]="transactionResult.RecordCount" [pageSize]="transactionResult.PageSize"
+			[pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons="true" aria-label="Select page">
+		</mat-paginator>
+	</div>
+</div>

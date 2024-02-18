@@ -1,0 +1,16 @@
+.example-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+  }
+
+  .mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-two-lines, .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-two-lines, .mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-two-lines {
+    height: 50px;
+}
