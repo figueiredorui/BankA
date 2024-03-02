@@ -7,6 +7,7 @@ using BankA.Infrastructure.Identity;
 using DotNetLib.AspNetCore.Filters;
 using DotNetLib.AspNetCore.Handlers;
 using DotNetLib.Serilog;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Text.Json.Serialization;
@@ -22,6 +23,9 @@ namespace BankA.WebApp8
             try
             {
                 var builder = WebApplication.CreateBuilder(args);
+
+                builder.Services.AddApplicationInsightsTelemetry();
+
 
                 builder.Services.AddControllers(o =>
                 {
