@@ -30,7 +30,7 @@ To use SQL Server database:
 
 ## How to run the application?
  1. Check out source code from this repository.
- 2. Check out source code from [DotNetLib8](https://github.com/figueiredorui/DotNetLib8) repository.
+ 2. Check out source code from [DotNetLib9](https://github.com/figueiredorui/DotNetLib9) repository.
  3. Using Visual Studio run **BankA.WebApp** project.
  4. Open **BankA.Webpp/ClientApp** and run 'npm install' 'npm run start'
  

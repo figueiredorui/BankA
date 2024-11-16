@@ -3,10 +3,10 @@ name: v1.0.0_$(Rev:r)
 
 resources:
   repositories:
-  - repository: DotNetLib8
+  - repository: DotNetLib9
     type: github
     endpoint: figueiredorui
-    name: figueiredorui/DotNetLib8
+    name: figueiredorui/DotNetLib9
 
 trigger:
 - main
@@ -21,7 +21,7 @@ variables:
 
 steps:
 - checkout: self
-- checkout: DotNetLib8
+- checkout: DotNetLib9
 
 - task: NuGetToolInstaller@1
 

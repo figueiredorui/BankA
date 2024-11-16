@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DotNetLib8\src\DotNetLib.MediatR\DotNetLib.MediatR.csproj" />
+    <ProjectReference Include="..\..\..\DotNetLib9\src\DotNetLib.MediatR\DotNetLib.MediatR.csproj" />
   </ItemGroup>
 
 </Project>
