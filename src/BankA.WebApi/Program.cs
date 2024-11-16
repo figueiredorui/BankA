@@ -24,6 +24,8 @@ public class Program
 
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.AddServiceDefaults();
+
             builder.Services.AddApplicationInsightsTelemetry();
 
             // Add services to the container.
