@@ -9,7 +9,7 @@ import { MerchantService } from '../../services/merchants.service';
 import { MerchantAddComponent } from '../merchant-add/merchant-add.component';
 import { MerchantEditComponent } from '../merchant-edit/merchant-edit.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-merchant-list',
 	templateUrl: './merchant-list.component.html',
 	styleUrls: ['./merchant-list.component.scss']

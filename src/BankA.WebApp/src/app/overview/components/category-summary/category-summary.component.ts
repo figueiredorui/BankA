@@ -5,7 +5,7 @@ import { ReportsService } from '../../services/reports.service';
 import { OverviewTransactionsComponent } from '../overview-transactions/overview-transactions.component';
 
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-category-summary',
 	templateUrl: './category-summary.component.html',
 	styleUrls: ['./category-summary.component.scss']

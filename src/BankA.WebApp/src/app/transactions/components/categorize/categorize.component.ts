@@ -5,7 +5,7 @@ import { CategoriseReport } from '../../models/categorise-report.model';
 import { TransactionsService } from '../../services/transactions.service';
 import { TransactionPagedListRequest } from '../../models/transaction-paged-list-request.model';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-categorize',
 	templateUrl: './categorize.component.html',
 	styleUrls: ['./categorize.component.scss']

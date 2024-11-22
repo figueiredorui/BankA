@@ -8,7 +8,7 @@ import { MerchantService } from '../../../merchants/services/merchants.service';
 import { RuleService } from '../../../rules/services/rules.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-categorize-add-rule',
 	templateUrl: './categorize-add-rule.component.html',
 	styleUrls: ['./categorize-add-rule.component.scss']

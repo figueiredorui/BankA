@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { AccountService } from '../../services/accounts.service';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-account-edit',
 	templateUrl: './account-edit.component.html',
 	styleUrls: ['./account-edit.component.scss']

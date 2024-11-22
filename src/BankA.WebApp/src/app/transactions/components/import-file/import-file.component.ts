@@ -6,7 +6,7 @@ import { TransactionsService } from '../../services/transactions.service';
 import { Account } from '../../../accounts/models/accounts.model';
 
 
-@Component({
+@Component({ standalone: false,
   selector: 'app-import-file',
   templateUrl: './import-file.component.html',
   styleUrls: ['./import-file.component.scss']

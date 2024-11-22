@@ -9,7 +9,7 @@ import { BaseComponent } from '../../../shared/components/base/base.component';
 import { TransactionAddRequest } from '../../models/transaction-add.model';
 import { TransactionsService } from '../../services/transactions.service';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-transaction-add',
 	templateUrl: './transaction-add.component.html',
 	styleUrls: ['./transaction-add.component.scss']

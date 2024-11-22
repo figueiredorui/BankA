@@ -4,7 +4,7 @@ import { MerchantService } from '../../services/merchants.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-merchant-edit',
 	templateUrl: './merchant-edit.component.html',
 	styleUrls: ['./merchant-edit.component.scss']

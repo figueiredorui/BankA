@@ -9,7 +9,7 @@ import { CategoryAddComponent } from '../category-add/category-add.component';
 import { CategoryEditComponent } from '../category-edit/category-edit.component';
 import { CategoryPagedListRequest } from '../../models/category-paged-list-request';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-category-list',
 	templateUrl: './category-list.component.html',
 	styleUrls: ['./category-list.component.scss']

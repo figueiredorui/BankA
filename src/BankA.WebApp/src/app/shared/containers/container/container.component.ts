@@ -3,7 +3,7 @@ import { AccountBalance } from '../../../transactions/models/accounts.model';
 import { TransactionsService } from '../../../transactions/services/transactions.service';
 import { BaseComponent } from '../../components/base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-container',
 	templateUrl: './container.component.html',
 	styleUrls: ['./container.component.scss']

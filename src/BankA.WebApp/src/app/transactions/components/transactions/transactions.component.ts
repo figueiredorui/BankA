@@ -8,7 +8,7 @@ import { AccountService } from '../../../accounts/services/accounts.service';
 import { Account } from '../../../accounts/models/accounts.model';
 import { TransactionAddComponent } from '../transaction-add/transaction-add.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-transactions',
 	templateUrl: './transactions.component.html',
 	styleUrls: ['./transactions.component.scss']

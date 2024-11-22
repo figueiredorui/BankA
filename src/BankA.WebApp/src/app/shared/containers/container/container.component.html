@@ -12,22 +12,35 @@
                     <a [routerLink]="['/','settings','accounts']">Click here to create an Account</a>
                 </div>
                 <ng-container *ngFor="let account of accounts">
-                    <a mat-list-item [routerLink]="[account.Id]" [activated]="account.Id === accountSelected?.Id"
+                    <!-- <a mat-list-item [routerLink]="[account.Id]" [activated]="account.Id === accountSelected?.Id"
                         (click)="selectAccount(account)">
                         <mat-icon matListItemIcon color="primary" class="me-3">view_list</mat-icon>
                         <div matListItemTitle class="mat-body-strong">{{account.Description}}</div>
                         <div matListItemLine>{{ account.Balance | currency }}</div>
-                    </a>
+                    </a> -->
+                    <mat-list-item [activated]="account.Id === accountSelected?.Id" class="mt-2" style="height: 61px; ">
+                        <button mat-icon-button  matListItemIcon class="ps-3">
+                            <mat-icon>view_list</mat-icon>
+                         </button>
+                        <a matListItemTitle (click)="selectAccount(account)" class="ps-4 text-decoration-none">{{account.Description}}</a>
+                        <div matListItemLine class="ps-4">{{ account.Balance | currency }}</div>
+                     </mat-list-item>
                 </ng-container>
             </mat-nav-list>
             <div>
                 <mat-divider></mat-divider>
-                <mat-nav-list class="menu-list">
+                <!-- <mat-nav-list class="menu-list">
                     <a mat-list-item [routerLink]="['/','settings']">
                         <mat-icon matListItemIcon color="primary" class="me-3">settings_applications</mat-icon>
                         <div matListItemTitle class="mat-body-strong">Settings</div>
                     </a>
-                </mat-nav-list>
+                </mat-nav-list> -->
+                <mat-list-item style="height: 61px; ">
+                    <button mat-icon-button  matListItemIcon class="ps-3">
+                        <mat-icon>settings_applications</mat-icon>
+                     </button>
+                    <a matListItemTitle [routerLink]="['/','settings']" class="ps-4 text-decoration-none">Settings</a>
+                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <app-about></app-about>
             </div>
@@ -40,7 +53,7 @@
                 <div class="header-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h6 class="header-pretitle">
+                            <h6 class="header-pretitle mat-h6">
                                 Account
                             </h6>
                             <h2 class="header-title text-truncate">

@@ -4,7 +4,7 @@ import { BaseComponent } from '../../../shared/components/base/base.component';
 import { ReportsService } from '../../services/reports.service';
 import { OverviewTransactionsComponent } from '../overview-transactions/overview-transactions.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-merchant-summary',
 	templateUrl: './merchant-summary.component.html',
 	styleUrls: ['./merchant-summary.component.scss']

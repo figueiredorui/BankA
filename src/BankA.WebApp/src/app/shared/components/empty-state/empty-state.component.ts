@@ -1,7 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-empty-state',
 	templateUrl: './empty-state.component.html',
 	styleUrls: ['./empty-state.component.scss']

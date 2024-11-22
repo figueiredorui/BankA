@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from './shared/components/base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styles: []

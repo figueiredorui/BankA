@@ -64,7 +64,7 @@ public class Program
             // Configure the HTTP request pipeline.
 
             app.AppIdentityDatabaseAsync();
-            //app.AppDataDatabaseAsync();
+            app.AppDataDatabaseAsync();
 
             app.UseDefaultFiles();
             app.MapStaticAssets();
@@ -80,11 +80,11 @@ public class Program
 
             app.UseAuthorization();
 
-            app.MapControllers().RequireAuthorization();
-
             app.MapGroup("/api/identity")
-                    .WithTags("Identity")
-                    .MapIdentityApi<ApplicationUser>();
+                 .WithTags("Identity")
+                 .MapIdentityApi<ApplicationUser>();
+
+            app.MapControllers().RequireAuthorization();
 
             app.MapFallbackToFile("/index.html");
 

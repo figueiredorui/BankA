@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from '../../components/base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-settings-container',
 	templateUrl: './settings-container.component.html',
 	styleUrls: ['./settings-container.component.scss']

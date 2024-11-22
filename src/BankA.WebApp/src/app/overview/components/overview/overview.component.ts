@@ -2,7 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { AccountService } from '../../../accounts/services/accounts.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-overview',
 	templateUrl: './overview.component.html',
 	styleUrls: ['./overview.component.scss']

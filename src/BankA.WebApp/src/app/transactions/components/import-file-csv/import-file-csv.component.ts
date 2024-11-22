@@ -13,7 +13,7 @@ export interface IColumnMapping {
   ColumnFieldMap: string;
 }
 
-@Component({
+@Component({ standalone: false,
   selector: 'app-import-file-csv',
   templateUrl: './import-file-csv.component.html',
   styleUrls: ['./import-file-csv.component.scss']

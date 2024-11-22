@@ -5,7 +5,7 @@ import { BaseComponent } from '../../../shared/components/base/base.component';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/categories.service';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-category-add',
 	templateUrl: './category-add.component.html',
 	styleUrls: ['./category-add.component.scss']

@@ -6,7 +6,7 @@ import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/categories.service';
 
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-category-edit',
 	templateUrl: './category-edit.component.html',
 	styleUrls: ['./category-edit.component.scss']

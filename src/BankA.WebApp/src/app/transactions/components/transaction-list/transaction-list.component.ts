@@ -13,7 +13,7 @@ import { TransactionPagedListRequest } from '../../models/transaction-paged-list
 import { Transaction } from '../../models/transaction.model';
 import { TransactionList } from '../../models/transaction-list';
 
-@Component({
+@Component({ 
 	standalone: true,
 	imports: [CommonModule, SharedModule],
 	selector: 'app-transaction-list',

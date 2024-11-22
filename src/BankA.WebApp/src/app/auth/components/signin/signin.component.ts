@@ -3,7 +3,7 @@ import { FormGroup, Validators } from '@angular/forms';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { AuthService } from '../../services/auth.service';
 
-@Component({
+@Component({ standalone: false,
   selector: 'app-signin-component',
   templateUrl: './signin.component.html'
 })

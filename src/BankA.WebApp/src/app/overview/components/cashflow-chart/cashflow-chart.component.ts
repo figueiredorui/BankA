@@ -5,7 +5,7 @@ import { BaseComponent } from '../../../shared/components/base/base.component';
 import { CashFlow } from '../../models/cashflow.model';
 import { ReportsService } from '../../services/reports.service';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-cashflow-chart',
 	templateUrl: './cashflow-chart.component.html',
 	styleUrls: ['./cashflow-chart.component.scss']

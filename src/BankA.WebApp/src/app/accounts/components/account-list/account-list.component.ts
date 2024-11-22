@@ -11,7 +11,7 @@ import { AccountEditComponent } from '../account-edit/account-edit.component';
 
 
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-account-list',
 	templateUrl: './account-list.component.html',
 	styleUrls: ['./account-list.component.scss']

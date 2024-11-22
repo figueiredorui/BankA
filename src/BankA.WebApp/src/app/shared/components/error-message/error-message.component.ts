@@ -3,7 +3,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 //ToDo
 //https://github.com/Angular-Material-Dev/course-md-ng-my-app/tree/main/src/app/ui/alert
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-error-message',
 	templateUrl: './error-message.component.html',
 	styleUrls: ['./error-message.component.scss']

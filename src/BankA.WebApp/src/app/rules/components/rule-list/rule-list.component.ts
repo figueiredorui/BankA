@@ -9,7 +9,7 @@ import { RuleService } from '../../services/rules.service';
 import { RuleAddComponent } from '../rule-add/rule-add.component';
 import { RuleEditComponent } from '../rule-edit/rule-edit.component';
 
-@Component({
+@Component({ standalone: false,
 	selector: 'app-rule-list',
 	templateUrl: './rule-list.component.html',
 	styleUrls: ['./rule-list.component.scss']
