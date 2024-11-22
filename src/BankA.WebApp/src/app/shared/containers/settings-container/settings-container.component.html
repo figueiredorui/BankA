@@ -8,28 +8,28 @@
       <mat-nav-list class="menu-list">
         <div mat-subheader class="mb-1 mat-h6"><small>Settings</small></div>
 
-        <a [routerLink]="['/','settings','accounts']" mat-list-item [activated]="r1.isActive" #r1="routerLinkActive"
+        <a [routerLink]="['/','settings','accounts']" mat-list-item class="ps-3" [activated]="r1.isActive" #r1="routerLinkActive"
           routerLinkActive>
           <mat-icon matListItemIcon>settings_applications</mat-icon>
           <div matListItemTitle class="mat-body-strong">Accounts</div>
           <div matListItemLine>&nbsp;</div>
         </a>
 
-        <a [routerLink]="['/','settings','categories']" mat-list-item [activated]="r2.isActive" #r2="routerLinkActive"
+        <a [routerLink]="['/','settings','categories']" mat-list-item class="ps-3" [activated]="r2.isActive" #r2="routerLinkActive"
           routerLinkActive>
           <mat-icon matListItemIcon>settings_applications</mat-icon>
           <div matListItemTitle class="mat-body-strong">Categories</div>
           <div matListItemLine>&nbsp;</div>
         </a>
 
-        <a [routerLink]="['/','settings','merchants']" mat-list-item [activated]="r3.isActive" #r3="routerLinkActive"
+        <a [routerLink]="['/','settings','merchants']" mat-list-item class="ps-3" [activated]="r3.isActive" #r3="routerLinkActive"
           routerLinkActive>
           <mat-icon matListItemIcon>settings_applications</mat-icon>
           <div matListItemTitle class="mat-body-strong">Merchants</div>
           <div matListItemLine>&nbsp;</div>
         </a>
 
-        <a [routerLink]="['/','settings','rules']" mat-list-item [activated]="r4.isActive" #r4="routerLinkActive"
+        <a [routerLink]="['/','settings','rules']" mat-list-item class="ps-3" [activated]="r4.isActive" #r4="routerLinkActive"
           routerLinkActive>
           <mat-icon matListItemIcon>settings_applications</mat-icon>
           <div matListItemTitle class="mat-body-strong">Rules</div>
@@ -39,7 +39,7 @@
       <div>
         <mat-divider></mat-divider>
         <mat-nav-list class="menu-list">
-          <a mat-list-item [routerLink]="['/','transactions']">
+          <a mat-list-item [routerLink]="['/','transactions']" class="ps-3">
             <mat-icon matListItemIcon color="primary" class="me-3">view_list</mat-icon>
             <div matListItemTitle class="mat-body-strong">Transactions</div>
             <div matListItemLine></div>

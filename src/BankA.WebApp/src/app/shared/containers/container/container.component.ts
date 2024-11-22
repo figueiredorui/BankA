@@ -3,7 +3,8 @@ import { AccountBalance } from '../../../transactions/models/accounts.model';
 import { TransactionsService } from '../../../transactions/services/transactions.service';
 import { BaseComponent } from '../../components/base/base.component';
 
-@Component({ standalone: false,
+@Component({
+	standalone: false,
 	selector: 'app-container',
 	templateUrl: './container.component.html',
 	styleUrls: ['./container.component.scss']
@@ -13,7 +14,7 @@ export class ContainerComponent extends BaseComponent implements OnInit {
 	accounts: AccountBalance[] = [];
 	accountSelected: AccountBalance | undefined;
 	selectedTabIndex: any;
-	
+
 
 	constructor(private injector: Injector, private transactionsService: TransactionsService) {
 		super(injector);
@@ -22,19 +23,9 @@ export class ContainerComponent extends BaseComponent implements OnInit {
 	async ngOnInit() {
 
 		await this.loadAccountBalance();
-		this.activatedRoute.children[0]?.params.subscribe((parameter: any) => {
-			console.log('ContainerComponent ' + parameter.id);
-			if (parameter.id) {
-				this.accountId = parameter.id;
-			}
-			else {
-				if (this.accounts.length > 0) {
-					this.accountId = this.accounts[0].Id;
-					this.router.navigate(['overview', this.accountId]);
-				}
-			}
-			this.selectAccountBy(this.accountId);
-		});
+
+		this.accountId = this.accounts[0].Id;
+		this.selectAccountBy(this.accountId);
 
 		this.transactionsService.onBalanceUpdated().subscribe(async () => {
 			await this.loadAccountBalance();
@@ -48,6 +39,8 @@ export class ContainerComponent extends BaseComponent implements OnInit {
 
 	public selectAccount(account: AccountBalance) {
 		this.accountSelected = account;
+		this.router.navigate(['overview', account.Id]);
+		this.accountId = account.Id;
 	}
 
 	private async loadAccountBalance() {
